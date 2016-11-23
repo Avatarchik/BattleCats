@@ -13,7 +13,7 @@ public class LoadingSceneManager : MonoBehaviour {
     }
 
 
-    float minLoadingSceneDuration = 10f;
+    float minLoadingSceneDuration = 12f;
     /*
      *
      * http://www.gamasutra.com/blogs/SarahHerzog/20151125/260053/Creating_an_Animating_Loading_Screen_in_Unity_5.php
