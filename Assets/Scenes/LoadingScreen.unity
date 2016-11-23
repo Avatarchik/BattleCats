@@ -176,8 +176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1871430012}
-  - {fileID: 1335565764}
   - {fileID: 869523403}
+  - {fileID: 1335565764}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 664148226}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c671d0fd68556f4ba5a3d7d69b93e91, type: 3}
   m_Name: 
@@ -380,10 +380,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 166079383}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -54.1}
+  m_AnchoredPosition: {x: 0, y: -0.000004172325}
   m_SizeDelta: {x: -40, y: 108.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869523404
@@ -460,9 +460,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 869523402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c14da3275df58548a415d387c8f8927, type: 3}
+  m_Script: {fileID: 11500000, guid: 62262ec2fdecdc34e88ee9fdd39e45dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tips:
+  - "Watch your cat\u2019s energy! A tired cat takes longer to train."
+  - "The rarer the cat, the better it\u2019s Cattributes!"
+  - The higher the cattributes, the more Battlecoins you earn!
+  - "Don\u2019t ignore an unused cat! Find it a new home on the Marketplace!"
+  - Keep an eye on the latest Battlecats news!
+  - Found any legendary cats, yet? Earn Medals to increase your chances!
+  - Check the Marketplace regularly!
+  - Upgrade rooms to speed up training times!
+  - Train Cats regularly to ensure they stay in perfect shape!
+  - Not training can have a catastrophic outcome.
+  - "A cat \u2018gotta eat! Feed your cats regularly."
+  - Check the calendar for details on the next Battlecats event!
+  - Listen to your cats! If you hear a hiss, someone needs a break.
+  - Love is a 4-letter word. So is Gain. Train power often.
+  - Ran out of space? Enter the build menu to demolish rooms.
+  - "Unhappy with a cat\u2019s name? Change it by tapping on the cat!"
+  - Earn more Battlecoins by competing with other players!
+  - Medals can only be earned in official Battlecats events!
+  - 'Scout rarer cats to reach higher Cattribute levels. '
+  - Check out More 4 for more games!
+  - Check back in regularly!
+  - Keep a look out for seasonal events.
+  - Check out More 4 for more games!
+  puns:
+  - The path to victory is small, fluffy and might purr a little.
+  - Eye of the Tiger.
+  - Pawsome.
+  - Meow.
+  - DRAAGOO!
+  - Check Meowt!
+  - Cat pun.
+  - "Battledogs doesn\u2019t sound as good."
+  - This is a very serious game. Fur-real.
 --- !u!1 &1335565763
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,11 +525,11 @@ RectTransform:
   m_Children:
   - {fileID: 1517597375}
   m_Father: {fileID: 166079383}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 123, y: 123}
+  m_SizeDelta: {x: 57.9, y: 57.9}
   m_Pivot: {x: 1, y: 0}
 --- !u!1 &1517597374
 GameObject:
@@ -595,46 +629,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &1539053980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1539053982}
-  - 114: {fileID: 1539053981}
-  m_Layer: 0
-  m_Name: '[Mgr]LoadingSceneManager'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1539053981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1539053980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715c1eef1029fa6459a13e66736e65fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1539053982
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1539053980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.66549253, y: -0.7895675, z: -6.1551905}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
 --- !u!1 &1871430011
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class InteractiveMainMenu : MonoBehaviour
     }
     public void LoadRoomsLevel()
     {
-        GameObject.Find("[Mgr]LoadingSceneManager").GetComponent<LoadingSceneManager>().LoadScene("Prototype2.0");
+        GameObject.Find("[Mgr]LoadingSceneManager").GetComponent<LoadingSceneManager>().LoadScene("Prototype 2.0");
     }
 
 
