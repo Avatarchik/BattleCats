@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GlitchEffects : MonoBehaviour {
     public UnityStandardAssets.ImageEffects.NoiseAndGrain horizontalNoiseComponent;
-
     float nextUpdateTime = 0;
 
     
@@ -15,8 +14,7 @@ public class GlitchEffects : MonoBehaviour {
     public float minGlitchDuration = 0.4f;
     public float maxGlitchDuration = 1.5f;
 
-    public bool hasGlitch = false;
-
+    bool hasGlitch = false;
 
 
 
@@ -24,24 +22,23 @@ public class GlitchEffects : MonoBehaviour {
 	void Start () {
         //initial noise pause 
         nextUpdateTime = Time.time + Random.Range(minPause, maxPause);
-        
-	}
+    }
 
 	void Update () {
-
         if(Time.time + Time.deltaTime > nextUpdateTime)
         {
             //Update noise
             if (hasGlitch)
             {
                 //Reset noise
-                horizontalNoiseComponent.intensityMultiplier = 0;
+                horizontalNoiseComponent.intensityMultiplier = .5f;
             }
             else
             {
                 //Update noise
                 float newAmount = Random.Range(1, 10);
                 horizontalNoiseComponent.intensityMultiplier = newAmount;
+
             }
             
             //Update hasNoice var

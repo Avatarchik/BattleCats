@@ -9,7 +9,8 @@ public class CameraScript : MonoBehaviour {
 
 	public float FOVZoomOut = 60;
 	public float FOVZoomIn = 12;
-	public float multiplier;
+    public float dragMultiplier = 0.01f;
+    public float zoomMultiplier = 0.1f;
 
 	private float lastPinchDistance = -1;
 
@@ -23,8 +24,7 @@ public class CameraScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		float multiplier = 0.01f;
+        
 	
 			//PC
 		if (!Input.touchSupported)
@@ -33,10 +33,10 @@ public class CameraScript : MonoBehaviour {
 
 			Vector2 offset = new Vector2(0, 0);
 
-			if (Input.GetKey(KeyCode.W)) offset.y += multiplier; //UP
-			if (Input.GetKey(KeyCode.S)) offset.y -= multiplier; //DN
-			if (Input.GetKey(KeyCode.A)) offset.x -= multiplier; //LT
-			if (Input.GetKey(KeyCode.D)) offset.x += multiplier; //RT
+			if (Input.GetKey(KeyCode.W)) offset.y += dragMultiplier; //UP
+			if (Input.GetKey(KeyCode.S)) offset.y -= dragMultiplier; //DN
+			if (Input.GetKey(KeyCode.A)) offset.x += dragMultiplier; //LT
+			if (Input.GetKey(KeyCode.D)) offset.x -= dragMultiplier; //RT
 
 			Vector3 pos = transform.position;
 			pos.x += offset.x;
@@ -62,7 +62,7 @@ public class CameraScript : MonoBehaviour {
 			{
 				Camera camera = GetComponent<Camera>();
 				float delta = lastPinchDistance - currentPinchDistance;
-				camera.fieldOfView = Mathf.Clamp(camera.fieldOfView + delta * multiplier, FOVZoomIn, FOVZoomOut);
+				camera.fieldOfView = Mathf.Clamp(camera.fieldOfView + delta * zoomMultiplier, FOVZoomIn, FOVZoomOut);
 
 
 				//Clamp, so it doesn't exceed the limits of the zoom
@@ -71,21 +71,30 @@ public class CameraScript : MonoBehaviour {
 			}
 			else if(Input.touchCount == 1)
 			{
+                //Cast a ray, to see if it hits any draggable objects;
+                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider.GetComponent<RoomCheckerScript>()) return;
+                }
+
+
 				if (MobileInput.CatPickedUp == true) 
 				{
-					multiplier = 0f;
+					dragMultiplier = 0f;
 					Debug.Log ("Cat Picked up ");
 				}
 				if (MobileInputs.CatPickedUp == true)
 				{
-					multiplier = 0f;
+					dragMultiplier = 0f;
 					Debug.Log ("Cat Picked Up");
 
 				}
 				//Moving
 				Vector2 dPos = Input.GetTouch(0).deltaPosition;
 				//slow the movement
-				dPos *= multiplier;
+				dPos *= dragMultiplier;
 
 				transform.position += new Vector3(dPos.x, -dPos.y, 0);
 
