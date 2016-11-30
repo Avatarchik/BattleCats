@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class RandomTips : MonoBehaviour
 {
-    public string[] tips =
+    public List<string> tips = new List<string>
     {
             "Watch your cat’s energy! A tired cat takes longer to train.",
             "The rarer the cat, the better it’s Cattributes!",
@@ -29,7 +31,7 @@ public class RandomTips : MonoBehaviour
             "Keep a look out for seasonal events.",
             "Check out More 4 for more games!"
     };
-    public string[] puns = 
+    public List<string> puns = new List<string>
     {
         "The path to victory is small, fluffy and might purr a little.",
         "Eye of the Tiger.",
@@ -43,15 +45,28 @@ public class RandomTips : MonoBehaviour
     };
     int currentTip = 0;
 
+    List<string> all = new List<string>();
+    void Start()
+    {
+        all = tips;
+        all = all.Select(item => { item = "<size=10>Tip:</size>\n\n" + item; return item; } ).ToList<string>();
+        all = all.Concat<string>(puns).ToList<string>();
 
+        all.Sort((x,y) => (int)Random.Range(-1, 1));
+
+
+
+    }
     public void NewTip()
     {
         //return if there are no tips or puns to display
-        if (tips.Length < 1 || puns.Length < 1) return;
+        if (tips.Count < 1 || puns.Count< 1) return;
         //
         string res = "";
-        if (currentTip % 2 == 0) res = "<size=9>" + puns[Random.Range(0, puns.Length - 1)] + "</size>";
-        else res = "<size=10>Tip:</size>\n\n" + tips[Random.Range(0, tips.Length - 1)];
+        
+
+        if ((int)Random.Range(0,1) == 0) res = "<size=9>" + puns[Random.Range(0, puns.Count - 1)] + "</size>";
+        else res = "<size=10>Tip:</size>\n\n" + tips[Random.Range(0, tips.Count - 1)];
 
         GetComponent<UnityEngine.UI.Text>().text = res;
         currentTip++;
